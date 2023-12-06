@@ -39,7 +39,7 @@ int main(int argc, char** argv)
       return 1;
     }
 
-    printf("srt startup\n");
+    printf("srt startup: %s %s\n", argv[1], argv[2]);
     srt_startup();
 
     printf("srt socket\n");
@@ -72,7 +72,7 @@ int main(int argc, char** argv)
     st = srt_connect(ss, (struct sockaddr*)&sa, sizeof sa);
     if (st == SRT_ERROR)
     {
-        fprintf(stderr, "srt_connect: %s\n", srt_getlasterror_str());
+        fprintf(stderr, "srt_connect %s: %s\n", argv[2], srt_getlasterror_str());
         return 1;
     }
 
